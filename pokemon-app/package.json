@@ -1,0 +1,24 @@
+{
+  "name": "pokemon-app",
+  "version": "1.0.0",
+  "description": "Backend Node service for Pokemon Fantasy League",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leah-tomotaki/pokemon-FL"
+  },
+  "author": "Leah Tomotaki",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "pokemon-app": "file:"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
