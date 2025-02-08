@@ -1,8 +1,11 @@
 const pg = require('pg');
-
 class PFLService {
     constructor() {
-        this.client = new pg.Client({ user: 'postgres', host: 'pokemon-1.cf4misqmkxx7.us-east-1.rds.amazonaws.com', database: 'pokemon_fantasy', password: '3uDSE979KWsjDrGiThsI', port: '5432' });
+        console.log("567890-");
+        console.log(process.env.POSTGRESQL_DB);
+        this.client = new pg.Client({ 
+            ssl: { rejectUnauthorized: false },
+            user: process.env.POSTGRESQL_DB_USER, host: process.env.POSTGRESQL_DB_HOST, database: process.env.POSTGRESQL_DB, password: process.env.POSTGRESQL_DB_PASSWORD, port: process.env.POSTGRESQL_PORT });
         this.client.connect(function(err) {
             if (err) {
               console.error('Database connection failed: ' + err.stack);
@@ -16,7 +19,7 @@ class PFLService {
     getPlayerById(playerId) {
         const parsedPlayerId = parseInt(playerId);
         if(!isNaN(parsedPlayerId)) {
-            this.client.query(`SELECT * FROM "Player" WHERE "PLAYER_ID" = ${parsedPlayerId}`).then((value) => {
+            this.client.query(`SELECT * FROM "Pokemon-Fantasy"."Player" WHERE "PLAYER_ID" = ${parsedPlayerId}`).then((value) => {
                 console.log(value.rows[0]);
                 return value.rows[0];
             });

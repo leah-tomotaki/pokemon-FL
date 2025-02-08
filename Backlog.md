@@ -18,17 +18,14 @@
 - Show remaining pokemon -- sortable table
 ## Kanban 
 ### Backlog
-- Update AWS settings for prod security (L)
-- UI Mockups (L)
+- Update Heroku DB settings for prod security (L)
 - Google OAuth (XL)
 - [UI] Login Page (S)
 - [UI] Sign up page (M)
 - [API] Create new player
 - [UI] View team list (S)
 - [API] Get team list (S)
-- [UI] View Pokemon info (team and unused) (M)
-- [API] Get Pokemon info (M)
-- [UI] Add Pokemon to team (S)
+- [UI] Add Pokemon to team (M)
 - [API] Edit team (M)
 - [UI] Add/Edit held item for pokemon (S)
 - [API] Edit held item (S)
@@ -41,13 +38,17 @@
 - [UI] Draft View (L)
 - [API] Start Draft (S) 
 - [API] Get next player in draft (M)
-- [UI] Show remaining pokemon -- sortable table (L)
+- [UI] Show remaining pokemon -- sortable table (M)
 - [API] Get unused pokemon (M)
 
+
 ### In progress
-- Set up server skeleton (M)
-- Set up React skeleton (M) 
+- UI Mockups (L)
+- [UI] View Pokemon info (team and unused) (L)
+- [API] Get Pokemon info (M)
 
 ### Completed 
-- Set up AWS postgres db (L)
+- Set up Heroku postgres db (L)
 - Plan Database schema -- (M)
+- Set up server skeleton (M)
+- Set up React skeleton (M) 
