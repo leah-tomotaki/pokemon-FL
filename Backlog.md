@@ -23,8 +23,6 @@
 - [UI] Login Page (S)
 - [UI] Sign up page (M)
 - [API] Create new player
-- [UI] View team list (S)
-- [API] Get team list (S)
 - [UI] Add Pokemon to team (M)
 - [API] Edit team (M)
 - [UI] Add/Edit held item for pokemon (S)
@@ -40,12 +38,20 @@
 - [API] Get next player in draft (M)
 - [UI] Show remaining pokemon -- sortable table (M)
 - [API] Get unused pokemon (M)
+- [UI] View League Standings
+- [API] Get League Standings
+- [UI] View Schedule
+- [API] Get Schedule
+- [UI] Update Match
+- [API] Update Match
 
 
 ### In progress
 - UI Mockups (L)
 - [UI] View Pokemon info (team and unused) (L)
 - [API] Get Pokemon info (M)
+- [UI] View team list (S)
+- [API] Get team list (S)
 
 ### Completed 
 - Set up Heroku postgres db (L)

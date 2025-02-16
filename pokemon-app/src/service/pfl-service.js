@@ -1,39 +1,29 @@
-const pg = require('pg');
+const PFLModel = require('../model/pfl-model');
+
 class PFLService {
+    
     constructor() {
-        console.log("567890-");
-        console.log(process.env.POSTGRESQL_DB);
-        this.client = new pg.Client({ 
-            ssl: { rejectUnauthorized: false },
-            user: process.env.POSTGRESQL_DB_USER, host: process.env.POSTGRESQL_DB_HOST, database: process.env.POSTGRESQL_DB, password: process.env.POSTGRESQL_DB_PASSWORD, port: process.env.POSTGRESQL_PORT });
-        this.client.connect(function(err) {
-            if (err) {
-              console.error('Database connection failed: ' + err.stack);
-              return;
-            }
-            console.log('Connected to database.');
-          }
-        );
+        this.pflModel = new PFLModel();
     }
 
-    getPlayerById(playerId) {
-        const parsedPlayerId = parseInt(playerId);
-        if(!isNaN(parsedPlayerId)) {
-            this.client.query(`SELECT * FROM "Pokemon-Fantasy"."Player" WHERE "PLAYER_ID" = ${parsedPlayerId}`).then((value) => {
-                console.log(value.rows[0]);
-                return value.rows[0];
-            });
-        }
-        else {
-            console.log("Parsing Player Id failed: " + playerId);
-            return null;
-        }
+    async getPlayerById(playerId) {
+        let result = await this.pflModel.getPlayerById(playerId);   
+        return result.rows;
     }
 
-    getPokemonByPlayerId(playerId) {
-        this.client.query(`SELECT * FROM "Used_Pokemon" WHERE PLAYER_ID=${playerId}`).then((value) => {
-            return value.rows;
-        });
+    async getTeamById(teamId) {
+        let pokemonResult = await this.pflModel.getPokemonByTeamId(teamId);
+        let teamResult = await this.pflModel.getTeamById(teamId);
+        pokemonResult = pokemonResult.rows;
+        teamResult = teamResult.rows[0];
+        const result = {
+            team_id: teamResult.team_id,
+            team_name: teamResult.name,
+            player_id: teamResult.player_id,
+            league_id: teamResult.league_id,
+            pokemon: pokemonResult
+        }
+        return result;
     }
 }
 
